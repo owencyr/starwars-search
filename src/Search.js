@@ -10,7 +10,9 @@ export default class Search extends Component {
 		const BASE_URL = "https://swapi.co/api";
 
 		const searchTerm = this.context.searchTerm;
-		fetch(`${BASE_URL}/people/?search=${searchTerm}`, {
+		const searchType = this.context.searchType;
+		debugger;
+		fetch(`${BASE_URL}/${searchType}/?search=${searchTerm}`, {
 			method: "GET",
 			headers: {
 				"content-type": "application/json"
@@ -25,7 +27,6 @@ export default class Search extends Component {
 			})
 			.then(resJSON => {
 				// const results = {results: resJSON}
-				debugger;
 				this.context.newResults(resJSON);
 			});
 	};
@@ -39,10 +40,11 @@ export default class Search extends Component {
 					name="input"
 					onChange={e => this.context.updateSearchTerm(e.target.value)}
 				/>
-				<select className="filter-search-resource">
-					<option className="people" name="people">
-						People
-					</option>
+				<select
+					className="filter-search-resource"
+					onChange={e => this.context.updateSearchType(e.target.value)}>
+					<option className="people">People</option>
+					<option className="planet">Planet</option>
 				</select>
 				<button type="submit">Submit</button>
 			</form>

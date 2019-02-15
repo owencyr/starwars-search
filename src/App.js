@@ -9,6 +9,7 @@ export default class App extends Component {
 	state = {
 		results: [],
 		searchTerm: "",
+		searchType: "people",
 		error: false,
 		errorMessages: {
 			searchInputExists: "",
@@ -22,11 +23,14 @@ export default class App extends Component {
 	};
 
 	newResults = results => {
-		debugger;
-		this.setState({ results });
+		this.setState({ results: results.results });
 	};
 
 	//state CRUD nonrequired features
+	updateSearchType = searchType => {
+		this.setState({ searchType });
+	};
+
 	nextPageResults(results) {
 		//append next page of results to current state
 		//can display just new page of results, or all results
@@ -37,10 +41,12 @@ export default class App extends Component {
 		const contextValue = {
 			results: this.state.results,
 			searchTerm: this.state.searchTerm,
+			searchType: this.state.searchType,
 			error: this.state.error,
 			errorMessages: this.state.errorMessages,
 			newResults: this.newResults,
-			updateSearchTerm: this.updateSearchTerm
+			updateSearchTerm: this.updateSearchTerm,
+			updateSearchType: this.updateSearchType
 		};
 
 		return (
