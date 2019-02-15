@@ -27,6 +27,7 @@ export default class Search extends Component {
 			})
 			.then(resJSON => {
 				// const results = {results: resJSON}
+				this.context.updateResultType(searchType);
 				this.context.newResults(resJSON);
 			});
 	};
@@ -43,8 +44,12 @@ export default class Search extends Component {
 				<select
 					className="filter-search-resource"
 					onChange={e => this.context.updateSearchType(e.target.value)}>
-					<option className="people">People</option>
-					<option className="planet">Planet</option>
+					<option className="people" value="people">
+						People
+					</option>
+					<option className="planet" value="planets">
+						Planets
+					</option>
 				</select>
 				<button type="submit">Submit</button>
 			</form>

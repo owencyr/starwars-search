@@ -10,6 +10,7 @@ export default class App extends Component {
 		results: [],
 		searchTerm: "",
 		searchType: "people",
+		resultType: "people",
 		error: false,
 		errorMessages: {
 			searchInputExists: "",
@@ -31,6 +32,10 @@ export default class App extends Component {
 		this.setState({ searchType });
 	};
 
+	updateResultType = resultType => {
+		this.setState({ resultType });
+	};
+
 	nextPageResults(results) {
 		//append next page of results to current state
 		//can display just new page of results, or all results
@@ -42,11 +47,13 @@ export default class App extends Component {
 			results: this.state.results,
 			searchTerm: this.state.searchTerm,
 			searchType: this.state.searchType,
+			resultType: this.state.resultType,
 			error: this.state.error,
 			errorMessages: this.state.errorMessages,
 			newResults: this.newResults,
 			updateSearchTerm: this.updateSearchTerm,
-			updateSearchType: this.updateSearchType
+			updateSearchType: this.updateSearchType,
+			updateResultType: this.updateResultType
 		};
 
 		return (
