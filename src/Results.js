@@ -9,6 +9,7 @@ export default class Results extends Component {
 	render() {
 		return (
 			<section className="results">
+				{this.context.results.length === 0 ? "Loading..." : ""}
 				{this.context.results.length > 0 && this.context.resultType === "people"
 					? this.context.results.map(result => Person(result))
 					: ""}
