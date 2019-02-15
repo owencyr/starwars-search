@@ -7,7 +7,9 @@ const SearchContext = React.createContext({
 	errorMessages: {
 		searchInputExists: "",
 		searchInputType: ""
-	}
+	},
+	updateSearchTerm: () => {},
+	addResults: () => {}
 });
 
 export { SearchContext };

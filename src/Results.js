@@ -1,8 +1,14 @@
 import React, { Component } from "react";
-import SearchContext from "./SearchContext.js";
+import { SearchContext } from "./SearchContext.js";
 
 export default class Results extends Component {
-	return() {
-		return null;
+	static contextType = SearchContext;
+	render() {
+		return (
+			<section className="results">
+				Here are the results:
+				{this.context.results}
+			</section>
+		);
 	}
 }

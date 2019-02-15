@@ -5,7 +5,7 @@ import Header from "./Header";
 import Search from "./Search";
 import Results from "./Results";
 
-class App extends Component {
+export default class App extends Component {
 	state = {
 		results: [],
 		searchTerm: "",
@@ -15,8 +15,34 @@ class App extends Component {
 			searchInputType: ""
 		}
 	};
+
+	//state CRUD required (replace old results display)
+	updateSearchTerm = searchTerm => {
+		this.setState({ searchTerm });
+	};
+
+	newResults = results => {
+		debugger;
+		this.setState({ results });
+	};
+
+	//state CRUD nonrequired features
+	nextPageResults(results) {
+		//append next page of results to current state
+		//can display just new page of results, or all results
+		//will start with just showing new page of results
+	}
+
 	render() {
-		const contextValue = {};
+		const contextValue = {
+			results: this.state.results,
+			searchTerm: this.state.searchTerm,
+			error: this.state.error,
+			errorMessages: this.state.errorMessages,
+			newResults: this.newResults,
+			updateSearchTerm: this.updateSearchTerm
+		};
+
 		return (
 			<section className="starwars-search">
 				<Header />
@@ -28,5 +54,3 @@ class App extends Component {
 		);
 	}
 }
-
-export default App;
