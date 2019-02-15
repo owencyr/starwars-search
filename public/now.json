@@ -1,6 +1,7 @@
 {
-	"version": 1,
+	"version": 2,
 	"name": "starwars-search",
+	"alias": "owencyr-starwars-search",
 	"routes": [
 		{
 			"src": "^/static/(.*)",
