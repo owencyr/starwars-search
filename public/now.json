@@ -1,7 +1,7 @@
 {
 	"version": 2,
-	"name": "starwars-search",
-	"alias": "owencyr-starwars-search",
+	"name": "searchSWAPI",
+	"alias": "owencyr-swapisearch",
 	"routes": [
 		{
 			"src": "^/static/(.*)",
