@@ -11,6 +11,8 @@ export default class App extends Component {
 		searchTerm: "",
 		searchType: "people",
 		resultType: "people",
+		resultNum: null,
+		loading: false,
 		error: false,
 		errorMessages: {
 			searchInputExists: "",
@@ -36,6 +38,14 @@ export default class App extends Component {
 		this.setState({ resultType });
 	};
 
+	updateResultNum = resultNum => {
+		this.setState({ resultNum });
+	};
+
+	toggleLoading = () => {
+		this.setState({ loading: !this.state.loading });
+	};
+
 	nextPageResults(results) {
 		//append next page of results to current state
 		//can display just new page of results, or all results
@@ -48,12 +58,15 @@ export default class App extends Component {
 			searchTerm: this.state.searchTerm,
 			searchType: this.state.searchType,
 			resultType: this.state.resultType,
+			resultNum: this.state.resultNum,
 			error: this.state.error,
 			errorMessages: this.state.errorMessages,
 			newResults: this.newResults,
 			updateSearchTerm: this.updateSearchTerm,
 			updateSearchType: this.updateSearchType,
-			updateResultType: this.updateResultType
+			updateResultType: this.updateResultType,
+			updateResultNum: this.updateResultNum,
+			toggleLoading: this.toggleLoading
 		};
 
 		return (

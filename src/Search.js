@@ -11,7 +11,7 @@ export default class Search extends Component {
 
 		const searchTerm = this.context.searchTerm;
 		const searchType = this.context.searchType;
-		debugger;
+		this.context.toggleLoading();
 		fetch(`${BASE_URL}/${searchType}/?search=${searchTerm}`, {
 			method: "GET",
 			headers: {
@@ -27,7 +27,10 @@ export default class Search extends Component {
 			})
 			.then(resJSON => {
 				// const results = {results: resJSON}
+				debugger;
+				this.context.toggleLoading();
 				this.context.updateResultType(searchType);
+				this.context.updateResultNum(resJSON.count);
 				this.context.newResults(resJSON);
 			});
 	};
@@ -47,7 +50,19 @@ export default class Search extends Component {
 					<option className="people" value="people">
 						People
 					</option>
-					<option className="planet" value="planets">
+					<option className="films" value="films">
+						Films
+					</option>
+					<option className="starships" value="starships">
+						Starships
+					</option>
+					<option className="vehicles" value="vehicles">
+						Vehicles
+					</option>
+					<option className="species" value="species">
+						Species
+					</option>
+					<option className="planets" value="planets">
 						Planets
 					</option>
 				</select>
