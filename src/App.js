@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-import { SearchContext } from "./SearchContext.js";
-import Header from "./Header";
-import Search from "./Search";
-import Results from "./Results";
+import { SearchContext } from "./components/search/SearchContext.js";
+import Header from "./components/Header";
+import Search from "./components/search/Search";
+import Results from "./components/results/Results";
 
 export default class App extends Component {
 	state = {

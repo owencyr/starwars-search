@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { SearchContext } from "./SearchContext.js";
+import { SearchContext } from "../search/SearchContext.js";
 import "./Results.css";
-import Person from "./results/Person";
-import Film from "./results/Film";
-import Starship from "./results/Starship";
-import Vehicle from "./results/Vehicle";
-import Species from "./results/Species";
-import Planet from "./results/Planet";
+import Person from "./resultTypes/Person";
+import Film from "./resultTypes/Film";
+import Starship from "./resultTypes/Starship";
+import Vehicle from "./resultTypes/Vehicle";
+import Species from "./resultTypes/Species";
+import Planet from "./resultTypes/Planet";
 
 export default class Results extends Component {
 	static contextType = SearchContext;
