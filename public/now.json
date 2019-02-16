@@ -1,7 +1,7 @@
 {
 	"version": 2,
-	"name": "starwars-search",
-	"alias": "starwars-search",
+	"name": "star-wars-search",
+	"alias": "star-wars-search",
 	"routes": [
 		{
 			"src": "^/static/(.*)",

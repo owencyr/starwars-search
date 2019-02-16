@@ -46,6 +46,10 @@ export default class App extends Component {
 		this.setState({ loading: !this.state.loading });
 	};
 
+	updateErrorMessages = message => {
+		this.setState({ errorMessages: { ...this.state.errorMessages, message } });
+	};
+
 	nextPageResults(results) {
 		//append next page of results to current state
 		//can display just new page of results, or all results
@@ -59,6 +63,7 @@ export default class App extends Component {
 			searchType: this.state.searchType,
 			resultType: this.state.resultType,
 			resultNum: this.state.resultNum,
+			loading: this.state.loading,
 			error: this.state.error,
 			errorMessages: this.state.errorMessages,
 			newResults: this.newResults,
@@ -66,6 +71,7 @@ export default class App extends Component {
 			updateSearchType: this.updateSearchType,
 			updateResultType: this.updateResultType,
 			updateResultNum: this.updateResultNum,
+			updateErrorMessages: this.updateErrorMessages,
 			toggleLoading: this.toggleLoading
 		};
 

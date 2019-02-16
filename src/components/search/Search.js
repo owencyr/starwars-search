@@ -22,12 +22,13 @@ export default class Search extends Component {
 				if (res.ok) {
 					return res.json();
 				} else {
-					this.context.errorMessages = "we have a problem";
+					this.context.updateErrorMessages(
+						"Temporary error. Please wait, and then retry your query again."
+					);
 				}
 			})
 			.then(resJSON => {
 				// const results = {results: resJSON}
-				debugger;
 				this.context.toggleLoading();
 				this.context.updateResultType(searchType);
 				this.context.updateResultNum(resJSON.count);
